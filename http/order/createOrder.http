@@ -1,0 +1,14 @@
+POST http://localhost:1234/api/order/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcwNjI4ODM0OCwiZXhwIjoxNzA2MjkxOTQ4fQ.4cgB_-gofrx6HrcI3rFl4MyxujpyDRqT4-BVbZrpyWw
+
+[
+  {
+    "quantity": 5,
+    "productId": 1
+  },
+  {
+    "quantity": 2,
+    "productId": 2
+  }
+]

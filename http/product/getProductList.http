@@ -1,0 +1,2 @@
+GET http://localhost:1234/api/product?perPage=12&page=1
+Content-Type: application/json

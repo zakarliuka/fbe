@@ -1,0 +1,8 @@
+POST http://localhost:1234/api/auth/unsafe/register-admin
+Content-Type: application/json
+Authorization: bearer SUPER_SECRET_SUPER_ADMIN_TOKEN
+
+{
+  "username": "login",
+  "password": "test1234"
+}

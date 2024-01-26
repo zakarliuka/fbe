@@ -1,0 +1,10 @@
+POST http://localhost:1234/api/product/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcwNjI4ODM0OCwiZXhwIjoxNzA2MjkxOTQ4fQ.4cgB_-gofrx6HrcI3rFl4MyxujpyDRqT4-BVbZrpyWw
+
+{
+  "name": "Test5",
+  "description": "Test5",
+  "price": 5000,
+  "image": "test"
+}

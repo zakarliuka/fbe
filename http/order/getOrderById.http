@@ -1,0 +1,2 @@
+GET http://localhost:1234/api/order/1
+Content-Type: application/json
