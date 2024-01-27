@@ -1,6 +1,6 @@
 import { db, userOrder, userOrderItems } from "@/db";
 
-type Order = typeof userOrder.$inferInsert;
+// type Order = typeof userOrder.$inferInsert;
 type OrderItems = Omit<typeof userOrderItems.$inferInsert, "orderId" | "price">;
 
 export const getOrderByUserId = (userId: number | string) => {
@@ -12,13 +12,14 @@ export const getOrderByUserId = (userId: number | string) => {
   });
 };
 
-export const getOrderById = (id: string | number) => {
+export const getOrderById = (id: string | number, userId: string | number) => {
   if (!id) {
     return null;
   }
 
   return db.query.userOrder.findFirst({
-    where: (order, { eq }) => eq(order.id, Number(id)),
+    where: (order, { eq, and }) =>
+      and(eq(order.id, Number(id)), eq(order.userId, Number(userId))),
     with: {
       orderItems: true,
     },

@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import * as ProductService from "./product.service";
-import { CreateProductsParams, ProductsListParams } from "./schema";
+import { CreateProductsParams, ProductListParams } from "./schema";
 
 export const getProductList = async (req: Request, res: Response) => {
-  const { query } = (req as any).parsedData as ProductsListParams;
+  const { query } = (req as any).parsedData as ProductListParams;
 
   const limit = query.perPage || 10;
   const offset = ((query.page || 1) - 1) * limit;

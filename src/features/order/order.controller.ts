@@ -5,7 +5,7 @@ import { CreateOrderSchema } from "./schema";
 //TODO ADD PAGINATION
 export const getOrders = async (req: Request, res: Response) => {
   const userId = (req.user as any).id;
-  const orders = await OrderService.getOrderById(userId);
+  const orders = await OrderService.getOrderByUserId(userId);
 
   if (!orders) {
     return res.sendStatus(404);
@@ -15,8 +15,9 @@ export const getOrders = async (req: Request, res: Response) => {
 };
 
 export const getOrder = async (req: Request, res: Response) => {
+  const userId = (req.user as any).id;
   const orderId = req.params.id;
-  const order = await OrderService.getOrderById(orderId);
+  const order = await OrderService.getOrderById(orderId, userId);
 
   if (!order) {
     return res.sendStatus(404);
@@ -29,5 +30,7 @@ export const createOrder = async (req: Request, res: Response) => {
   const userId = (req.user as any).id;
   const { body } = (req as any).parsedData as CreateOrderSchema;
 
-  return await OrderService.createOrder({ userId, orderItems: body });
+  const order = await OrderService.createOrder({ userId, orderItems: body });
+
+  return res.status(201).json(order);
 };

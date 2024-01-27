@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-export type ProductsListParams = Zod.infer<typeof getProductsSchema>;
+export type ProductListParams = Zod.infer<typeof productListSchema>;
 
-export const getProductsSchema = z.object({
+export const productListSchema = z.object({
   query: z.object({
     perPage: z
       .string()

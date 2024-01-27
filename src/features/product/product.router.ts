@@ -7,7 +7,7 @@ const router = Router();
 
 router.get(
   "/",
-  validate(ProductSchemas.getProductsSchema),
+  validate(ProductSchemas.productListSchema),
   ProductController.getProductList
 );
 
